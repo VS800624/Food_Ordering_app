@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+.parcel-cache
+/coverage
 
 # Editor directories and files
 .vscode/*

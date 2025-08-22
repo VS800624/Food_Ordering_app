@@ -43,3 +43,36 @@ we can also write it as store = useSelector((store) => store)
 const cartItems = store.cart.items
  and here we are subscribing the whole store and we are extracting our items  it will work fine but this is very less sufficient when you write like this the store variable is subscribed to the  redux store whenever anything changes in the store your cart component will get to know your store variable will be updated  whenever anything changes in the whole store and we don't want to subscribe to updates of whole store eg  suppose if something is happening inside other slice suppose user login it has nothing to do with cartSlice so why this store variable subscribed to the whole store it is foolish  and a better performance way is to only subscribe to the specific portion or small portion of the store  
  it's name is because it is selecting the portion of the store i.e you are subscribing the portion of the store that's why it is a selector
+
+
+ # Types of testing (developer)
+  - Unit Testing : Unit testing means you test your react components or one unit in isolation eg. if we want to test only the header component want we will do is we test our header component in the isolation basically we will try to render just the header component and we will we see whether it is  render properly or not only one specific component that type of testing is known as unit testing i.e. one unit of your react application (one component) you are testing specific small unit of your react application.
+  - Integrating Testing : It means testing the integration of the components eg: suppose if we search over here "pizza" and click on the search so when we did this so many components collaborated to make this feature so it ids a integration of so many components , So testing features like this known as integration testing.
+  Integration testing means there multiple components and they talking to each other and we will develop the flow of a action in our react application that we will test .
+  - End to End Testing (e2e testing) : End to End testing means testing our react application as soon as user lands on the website to the user leaves the website and we will test all the flows (different types of flows) basically the end to end testing will starts from user landing on the page clicking on the login button entering the username, password going inside it finding the restaurant adding items to the cart and then checking out, basically it is kind of simulating what will the user do through the app or how the user will flow across the application that is end to end testing.
+
+end to end testing requires different types of tools.
+
+-React testing library builds on top of DOM testing library.
+-React testing library uses something known as jest . Jest  is a delightful Javascript testing framework with a focus on simplicity. Jest works with projects using: Bebel, TypeScript, Node, React, Angular, Vue and more!
+
+
+# Setting up Testing in our app
+ - Install React Testing Library 
+ - Install jest
+ - Installed Babel dependencies
+ - Configure Babel
+ - Configure Parcel Config file to disable default babel transpilation
+ - Jest configuration : npx create-jest@latest
+ - Install jsdom library
+ - Install npm i -d  @babel/preset-react : to make JSX work in test cases
+ - Include @babel/preset-react inside my babel  config
+ -  Install npm i -D @testing-library/jest-dom
+
+ 
+ jsdom is like a browser it will give you the superpowers of the browser and all our testing code will be runs here.
+
+ Why are we installing @babel/preset-react ?
+ So basically babel is a transpiler , it basically converts your code from one form to another write now this @babel/preset-react helping our testing library to convert the jsx code to html so that it can read properly. The code we are testing is jsx code so that @babel/preset-react is helping this react code to convert into normal html code that's why we use preset
+
+ Everytime in your test case you will render something then you will query something and then you will assert something

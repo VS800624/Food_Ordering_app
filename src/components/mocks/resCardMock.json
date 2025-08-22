@@ -1,0 +1,70 @@
+{
+    "resData": {
+        "info": {
+            "id": "365574",
+            "name": "LunchBox - Meals and Thalis",
+            "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/10/16/663d908b-e5d8-45ca-ad44-104e91ad0f63_365574.jpg",
+            "locality": "Back Side Area",
+            "areaName": "Rajpur Road",
+            "costForTwo": "₹200 for two",
+            "cuisines": [
+                "Thalis",
+                "North Indian",
+                "Biryani"
+            ],
+            "avgRating": 4.4,
+            "parentId": "4925",
+            "avgRatingString": "4.4",
+            "totalRatingsString": "3.3K+",
+            "sla": {
+                "deliveryTime": 29,
+                "lastMileTravel": 3.9,
+                "serviceability": "SERVICEABLE",
+                "slaString": "25-30 mins",
+                "lastMileTravelString": "3.9 km",
+                "iconType": "ICON_TYPE_EMPTY"
+            },
+            "availability": {
+                "nextCloseTime": "2025-08-22 23:59:00",
+                "opened": true
+            },
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
+                }
+            },
+            "aggregatedDiscountInfoV3": {
+                "header": "ITEMS",
+                "subHeader": "AT ₹99"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "lottie": {},
+                    "video": {}
+                }
+            },
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
+                }
+            },
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+        },
+        "analytics": {
+            "context": "seo-data-fcb46319-827a-4e4f-afc2-db9ab730880e"
+        },
+        "cta": {
+            "link": "https://www.swiggy.com/city/dehradun/lunchbox-meals-and-thalis-back-side-area-rajpur-road-rest365574",
+            "type": "WEBLINK"
+        }
+    }
+}
