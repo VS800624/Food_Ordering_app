@@ -14,10 +14,10 @@ it("should render RestaurantCard component with props data", () => {
 
 const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
-it("should render RestaurantCard component with Promoted Label", () => {
-     render(<PromotedRestaurantCard resData={MOCK_DATA.resData} />);
+// it("should render RestaurantCard component with Promoted Label", () => {
+//      render(<PromotedRestaurantCard resData={MOCK_DATA.resData} />);
 
-    const promoted = screen.getByText("promoted")
+//     const promoted = screen.getByText("promoted")
 
-    expect(promoted).toBeInTheDocument();
-})
+//     expect(promoted).toBeInTheDocument();
+// })

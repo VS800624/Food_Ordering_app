@@ -76,3 +76,8 @@ end to end testing requires different types of tools.
  So basically babel is a transpiler , it basically converts your code from one form to another write now this @babel/preset-react helping our testing library to convert the jsx code to html so that it can read properly. The code we are testing is jsx code so that @babel/preset-react is helping this react code to convert into normal html code that's why we use preset
 
  Everytime in your test case you will render something then you will query something and then you will assert something
+
+ Our npm start (parcel, vite) has HMR (Hot Module Replacement) and it automatically refreshes  what change we make over here in my code it automatically gets refreshed on the browser parcel is doing that we can do a similar thing inside our test also so that we don't have to write the command npm run test again and again. 
+So, for that go to package.json just like we have the test command write create another test command : "watch-test" : "jest --watch" this command will basically run your test cases it won't stop it and it will keep running it if we make changes in any test file and save it , it will run automatically run test cases.
+
+Whenever you are using fetch, state updates wrap your render function in the act() function in test file this act function comes from  "react-dom/test-utils" 
