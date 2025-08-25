@@ -55,7 +55,8 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li>
-            <Link to="/cart">Cart - ({cartItems.length} items)</Link>
+            {/* ({cartItems.length > 1 ? `${cartItems.length} items` : `${cartItems.length} item`}) */}
+            <Link to="/cart">Cart - ({cartItems.length} items)</Link>  //
           </li>
           <button
             className="px-[20px] py-[8px] bg-blue-400 cursor-pointer"

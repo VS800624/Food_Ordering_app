@@ -24,7 +24,7 @@ global.fetch = jest.fn(() => {
   });
 });
 
-it("should render the body component with search ", async () => {
+it("should search res list for pizza text input render the body component with search ", async () => {
   // when we test this body component, when we render the body component  it is rendering the body component on the jsDOM which is browser like it does not have the all the superpowers of the browser and this fetch is the superpower of the browser it is given by the browser it is not in javaScript it is not a native function it is given by the browser  and over here in the testing when we render this body component tis is been render in jsDOM which is browser like thing so it (jest) cannot understand what is fetch so we have to write mock function for the fetch
   await act(async () =>
     render(
@@ -38,18 +38,43 @@ it("should render the body component with search ", async () => {
 
   expect(cardsBeforeSearch.length).toBe(20)
 
+  // finding the search button
     const searchBtn = screen.getByRole("button", {name: "Search"})
 //   console.log(searchBtn)
 
+  // finding the input box (search box)
     const searchInput = screen.getByTestId("searchInput")   // to use getByTestId you have to give the element data-testid attribute (like here we have given input element in body component data-testid : "searchInput")
+
+    // firing two events first changing the input box
     fireEvent.change(searchInput, {target: {value: "pizza"}})  // this object is simulating what we get in onChange event (inside the e) in the input element
 
+    // second event clicking on the search button 
     fireEvent.click(searchBtn)
 
     // expect(searchBtn).toBeInTheDocument()
 
-    //screen should 2 restaurant cards 
-    const cards = screen.getAllByTestId("resCard")
+    //screen should 3 restaurant cards 
+    const cardsAfterSearch = screen.getAllByTestId("resCard")
 
-    expect(cards.length).toBe(3)
+    expect(cardsAfterSearch.length).toBe(3)
 });
+
+it("should filter top rated restaurant ", async () => {
+  await act(async () =>
+    render(
+      <BrowserRouter>
+        <Body />
+      </BrowserRouter>
+    )
+  );
+
+  const cardsBeforeFilter = screen.getAllByTestId("resCard");
+
+  expect(cardsBeforeFilter.length).toBe(20);
+
+  const topRatedBtn = screen.getByRole("button", {name: "Top Rated Restaurants"})
+  fireEvent.click(topRatedBtn)
+
+  const cardsAfterFilter = screen.getAllByTestId("resCard")
+  expect(cardsAfterFilter.length).toBe(11)
+})

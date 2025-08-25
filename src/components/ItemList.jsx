@@ -19,6 +19,7 @@ const handleAddItem = (item) => {
       {items.map((item) => {
         return (
           <div
+          data-testid="foodItems"
             key={item.card.info.id}
             className="p-2 m-2 border border-b-2 border-gray-200 text-left flex justify-between"
           >
