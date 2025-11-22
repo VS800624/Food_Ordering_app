@@ -27,7 +27,7 @@ const Body = () => {
   // let listOfRestaurants = [];
 
   //Whenever state variables update,  react triggers a reconciliation cycle(re-renders the components)
-  console.log("Body Rendered")
+  // console.log("Body Rendered")
 
   useEffect(() => {
     // console.log("useEffect Called")
@@ -40,12 +40,21 @@ const Body = () => {
     );
 
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     // Optionally Chaining
-    setListOfRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    // setListOfRestaurants(
+    //   json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
+    // setFilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+
+    const restaurants =
+    json?.data?.cards
+      ?.map((card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+      .find((res) => res !== undefined) || [];  // fallback to []
+
+      console.log(restaurants)
+    setListOfRestaurants(restaurants);
+    setFilteredRestaurant(restaurants)
   };
 
   const onlineStatus = useOnlineStatus()
@@ -67,7 +76,7 @@ const Body = () => {
   //   );
   // }
 
-  return listOfRestaurants.length === 0 ? (
+  return  listOfRestaurants?.length === 0 ? (
     <div className="grid grid-cols-4 mx-[30px] gap-[40px]">
       {Array(8)
         .fill("")
@@ -87,6 +96,11 @@ const Body = () => {
             console.log(searchText)
             // const filteredRestaurant = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
             // setFilteredRestaurant(filteredRestaurant)
+          //    const filteredRestaurant = listOfRestaurants.filter((res) =>
+          //   searchText.toLowerCase().split("").every(letter =>
+          //     res.info.name.toLowerCase().includes(letter)
+          //   )
+          // );
             const filteredRestaurant = listOfRestaurants.filter((res) =>
             [...searchText.toLowerCase()].every(letter =>
               res.info.name.toLowerCase().includes(letter)

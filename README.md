@@ -29,15 +29,19 @@ note :useSelector is used for reading and useDispatch for dispatching
 Note: Redux and React are different libraries.
 zustand is also a library like redux
 
+Redux Store: Redux is nothing but a big whole object you can assume redux store is a big object kept in  central global space. Redux store is a kind of like a very big JS object with lot a data inside it and it is kept in the global centre place( so any component can access it inside our application , it can read and write data from that store) and we keep most of the major data of our application to this store, there is no problem with keeping the very big object with lot of data inside it, it is completely absolutely fine, but so that our redux store does not become very big , very clumsy we have something known as slices inside our redux store. Slices are the small portion of the redux store  and we create multiple slices inside our redux store. 
+To keep data separate we make logical partitions and these logical partitions are slices.
+Assume if we want to add cart data into our redux store we will create a separate slice (cartSlice) for our cart data, suppose if we want to keep logged in user info inside our redux store so, we will create the userSlice like of thing, etc so whatever you need to create we will create logical separations and we  will make small slices in our redux store.
+ 
  see the diagram in 29:30 video 12 or in telegram
-when you click on the add button it dispatches an action which calls the reducer function which update the slice of the redux store now our redux store cart slice will have some data inside it this is how we write data
+when you click on the add button it dispatches an action which calls the reducer function (and this function modify the cart) which update the slice of the redux store now our redux store cart slice will have some data inside it this is how we write data
 
 Now we will see how to read or get data from the cart over react component
 we will use a selector to read the data from our redux store and the selector will modify our react component when we use selector this phenomena is known as subscribing to the store
 
 # Important things to remember when using redux
 
-- Whenever yo are using the selector make sure your are subscribing to the right portion of the store here you can optimize the performance so if you don't subscribe to the right portion of the store it will be the big performance loss
+- Whenever you are using the selector make sure your are subscribing to the right portion of the store here you can optimize the performance so if you don't subscribe to the right portion of the store it will be the big performance loss
 const cartItems = useSelector((store) => store.cart.items)  here we are subscribing to the small portion of the store
 we can also write it as store = useSelector((store) => store)  
 const cartItems = store.cart.items
